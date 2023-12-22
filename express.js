@@ -39,6 +39,14 @@ app.get('/task/stop', async (req, res) => {
     return res.status(200).send()
 })
 
+app.get('/task/remove', async (req, res) => {
+    const scheduler = req.scheduler
+    scheduler.removeById('id_1')
+
+    // console.log(scheduler.getById('id_1').getStatus());
+    return res.status(200).send()
+})
+
 app.listen(5000, () => {
     console.log("Express app running")
 })
